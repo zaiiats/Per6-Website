@@ -1,15 +1,25 @@
 import styled from "styled-components"
+import { useScroll } from "../../providers/ScrollProvider";
 
-function Navlink({children, to}:{children:any, to:string}) {
+function Navlink({children, to}:{children:any, to:number}) {
+  const { setCurrentPage } = useScroll();
+
   return (
-    <StyledLink href={to}>
+    <StyledButton onClick={()=>setCurrentPage(to)}>
       {children}
-    </StyledLink>
+    </StyledButton>
   )
 }
 
-const StyledLink = styled.a`
-  color:#fff
-`
+const StyledButton = styled.button`
+  font-weight:500;
+  color: var(--white-color-text);
+  background-color: transparent;
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--accent-color);
+  }
+`;
 
 export default Navlink

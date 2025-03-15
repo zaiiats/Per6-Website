@@ -1,23 +1,42 @@
 import styled from 'styled-components';
-import bgHero from '../../assets/bg-hero.png'; // ✅ Import image correctly
+import { isValidElement, ReactNode } from 'react';
 
-function PageContainer({ children }: { children: any }) {
+import bgHero from '../../assets/bg-hero.png';
+import bgProjects from '../../assets/bg-projects.png';
+import bgCommunity from '../../assets/bg-community.png';
+
+const backgroundImages: Record<string, string> = {
+  Hero: bgHero,
+  Projects: bgProjects,
+  Community: bgCommunity,
+};
+
+function PageContainer({ children }: { children: ReactNode }) {  
+
+  const nameOfTheComponent =
+    isValidElement(children) && typeof children.type === 'function'
+      ? children.type.name
+      : 'Unknown';     
+
+  const backgroundImage = backgroundImages[nameOfTheComponent] || bgHero;
+
   return (
-    <StyledPageContainer>
+    <StyledPageContainer $bgImage={backgroundImage}>
       <Page>{children}</Page>
-      <Div/>
+      <Div $type={nameOfTheComponent}/>
     </StyledPageContainer>
   );
 }
 
-const StyledPageContainer = styled.section`
+const StyledPageContainer = styled.section<{ $bgImage: string }>`
   flex: 1;
   height: 100dvh;
-  position:relative;
+  position: relative;
   display: flex;
-  background-image: url(${bgHero});
+  background-image: url(${(props) => props.$bgImage});
   background-size: cover;
   background-position: center;
+  padding:3.5rem 5vw 0;
 `;
 
 const Page = styled.section`
@@ -30,12 +49,15 @@ const Page = styled.section`
   z-index:1;
 `;
 
-const Div = styled.div`
-  height:100%;
+const Div = styled.div<{ $type: string }>`
+  height: 100%;
   width: 100%;
-  position:absolute;
-  inset:0;
-  background-color:rgba(0,0,0,0.5)
+  position: absolute;
+  inset: 0;
+  background-color: ${(props) =>
+    props.$type === 'Hero'
+      ? 'var(--page1-background)'
+      : 'var(--page2-backdround)'};
 `;
 
 export default PageContainer;

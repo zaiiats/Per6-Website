@@ -4,19 +4,22 @@ import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import styled, { createGlobalStyle } from 'styled-components';
+import { ScrollProvider } from './providers/ScrollProvider';
 
 function App() {
   return (
     <StyledApp>
-      <GlobalStyle />
+      <ScrollProvider>
+        <GlobalStyle />
 
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
+      </ScrollProvider>
     </StyledApp>
   );
 }
@@ -26,7 +29,7 @@ const StyledApp = styled.div`
   flex-direction: column;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
-  background-color: #0c0c1b;
+  background-color: var(--main-bg-color);
   min-height: 100dvh;
   overflow: hidden;
 `;

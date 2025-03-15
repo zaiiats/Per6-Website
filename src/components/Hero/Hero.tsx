@@ -1,25 +1,27 @@
 import styled from "styled-components"
 import LogoText from "../reusable/LogoText"
-import Button from "../reusable/Button";
+import DynamicButton from "../reusable/DynamicButton";
 
 function Hero() {
   return (
     <StyledDiv>
       <LogoText type='big' />
       <h3>A unique gaming studio based on Ukraine</h3>
-      <Button text="Дізнатися більше"/>
+      <DynamicButton type='main'>
+        Дізнатися більше
+      </DynamicButton>
     </StyledDiv>
   );
 }
 
 const StyledDiv = styled.div`
-  color:#fff;
-  width:60%;
-  flex-direction:column;
+  color: var(--white-color-text);
+  width: 60%;
+  flex-direction: column;
   display: flex;
-  flex-direction:column;
-  align-items:start;
-  gap:2rem;
-`
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+`;
 
 export default Hero

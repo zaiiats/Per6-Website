@@ -6,11 +6,13 @@ function Navbar() {
   return (
     <StyledNavWrapper>
       <Nav>
-        <Logo type='original' />
+        <Navlink to={0}>
+          <Logo size='small' type='original' />
+        </Navlink>
         <LinksContainer>
-          <Navlink to={'#community'}>Ком'юніті</Navlink>
-          <Navlink to={'#projects'}>Проєкти</Navlink>
-          <Navlink to={'#about'}>Про нас</Navlink>
+          <Navlink to={1}>Ком'юніті</Navlink>
+          <Navlink to={2}>Проєкти</Navlink>
+          <Navlink to={3}>Про нас</Navlink>
         </LinksContainer>
       </Nav>
     </StyledNavWrapper>
@@ -23,15 +25,15 @@ const StyledNavWrapper = styled.nav`
   position: fixed;
   width: 100%;
   top: 0;
-  color: #fff;
-  border-bottom: 0.15rem solid #fff;
+  color: var(--white-color-text);
+  border-bottom: var(--white-border);
 `;
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 0.75rem 1.5rem;
   max-width: 100rem;
   margin: 0 auto;
 `;

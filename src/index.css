@@ -1,52 +1,21 @@
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
 :root {
-  --angle: 0deg;
+  --white-color-text:#fff;
+  --black-color-text:#000;
+  --main-bg-color:#0c0c1b;
+  --page1-backdround:rgba(0,0,0,0.3);
+  --page2-backdround:rgba(0,0,0,0.7);
+  --accent-color:#6a64ea;
+
+
+  --white-border: 0.15rem solid var(--white-color-text);
+  --accent-border: 0.15rem solid var(--accent-color);
+  --transition: all 0.15s ease-in-out;
 }
 
-.button {
-  position: relative;
-  border-radius: 0.3rem;
-  padding: 0.2rem;
-  color: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: transparent;
-  overflow: hidden; 
-}
-
-.button__text {
-  z-index: 2;
-  position: relative;
-  padding: 0.75rem 1.5rem;
-  background-color: #0c0c1b;
-  
-  border-radius: 0.3rem;
-}
-
-.button__rotated {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200%;
-  height: 200%;
-  background-image: conic-gradient(from var(--angle), #0c0c1b, #6a64ea, #0c0c1b);
-  z-index: 1;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: 360deg;
-  }
+.svg{
+  stroke: var(--white-color-text);
+  height: 1.5rem;
+  width: 1.5rem;
+  stroke-width: 1.5;
+  fill: none;
 }

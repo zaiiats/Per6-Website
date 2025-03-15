@@ -39,12 +39,13 @@ const Dot = styled.div<{ $isActive: boolean }>`
   height: 1rem;
   width: 1rem;
   border-radius: 50%;
-  background-color: ${({ $isActive }) => ($isActive ? 'white' : 'black')};
+  background-color: ${({ $isActive }) =>
+    $isActive ? 'var(--accent-color)' : 'transparent'};
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: 0.15rem solid #fff;
+  transition: var(--transition);
+  border: var(--white-border);
   &:hover {
-    background-color: gray;
+    background-color: var(--accent-color);
   }
 `;
 

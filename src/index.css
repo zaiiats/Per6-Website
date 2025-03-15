@@ -1,1 +1,52 @@
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
+:root {
+  --angle: 0deg;
+}
+
+.button {
+  position: relative;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  overflow: hidden; 
+}
+
+.button__text {
+  z-index: 2;
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  background-color: #0c0c1b;
+  
+  border-radius: 0.3rem;
+}
+
+.button__rotated {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background-image: conic-gradient(from var(--angle), #0c0c1b, #6a64ea, #0c0c1b);
+  z-index: 1;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}

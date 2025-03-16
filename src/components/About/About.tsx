@@ -1,7 +1,7 @@
 import DynamicPage from '../reusable/DynamicPage';
 import styled from 'styled-components';
 import DynamicText from '../reusable/DynamicText';
-import placeholder from '../../assets/sasha.jpg'; // Replace with actual image
+import placeholder from '../../assets/sasha.jpg';
 
 interface Person {
   name: string;
@@ -13,42 +13,44 @@ interface Person {
 function About() {
   const team: Person[] = [
     {
-      name: 'John Doe',
+      name: 'Саша',
       image: placeholder,
-      position: 'Frontend Developer',
-      instagramUrl: 'https://instagram.com/example',
+      position: 'Team Lead, Fullstack-розробник',
+      instagramUrl: 'https://instagram.com/zaiiats',
     },
     {
-      name: 'Jane Smith',
+      name: 'Соломія',
       image: placeholder,
-      position: 'UI/UX Designer',
-      instagramUrl: 'https://instagram.com/example',
+      position: 'Графічний дизайнер, SMM-спеціаліст',
+      instagramUrl: 'https://instagram.com/solomiya7512',
     },
     {
-      name: 'Alice Johnson',
+      name: 'Віталій',
       image: placeholder,
-      position: 'Backend Developer',
-      instagramUrl: 'https://instagram.com/example',
+      position: 'Геймдизайнер, UI/UX-дизайнер',
+      instagramUrl: 'https://instagram.com/vrypkovych',
     },
     {
-      name: 'Bob Brown',
+      name: 'Олександр',
       image: placeholder,
-      position: 'Full Stack Developer',
-      instagramUrl: 'https://instagram.com/example',
+      position: 'Саунд-дизайнер, Frontend-розробник',
+      instagramUrl: 'https://instagram.com/_sasha_sysoiev_',
     },
     {
-      name: 'Carol White',
+      name: 'Іван',
       image: placeholder,
-      position: 'Project Manager',
-      instagramUrl: 'https://instagram.com/example',
+      position: 'Тестувальник, Frontend-розробник',
+      instagramUrl: 'https://instagram.com/ivan__chernenko_',
     },
     {
-      name: 'Eve Black',
+      name: "Мар'яна",
       image: placeholder,
-      position: 'QA Engineer',
-      instagramUrl: 'https://instagram.com/example',
+      position: 'Frontend-розробник',
+      instagramUrl: 'https://instagram.com/stasiv_mary',
     },
   ];
+
+  const sortedTeam = [...team].sort(() => Math.random() - 0.5);
 
   return (
     <DynamicPage headingText='Про нас' order={2}>
@@ -58,8 +60,13 @@ function About() {
           різних куточків України.
         </Description>
         <CardsContainer>
-          {team.map((person) => (
-            <Card key={person.name}>
+          {sortedTeam.map((person) => (
+            <Card
+              key={person.name}
+              target='_blank'
+              rel='noopener noreferrer'
+              href={person.instagramUrl}
+            >
               <CardImage src={person.image} alt={`${person.name}'s image`} />
               <CardInfo>
                 <Name>{person.name}</Name>
@@ -94,7 +101,8 @@ const CardsContainer = styled.div`
   padding: 2rem 0;
 `;
 
-const Card = styled.div`
+const Card = styled.a`
+  display:block;
   position: relative;
   width: 100%;
   max-height: 100%;
@@ -121,12 +129,12 @@ const Card = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
-  max-height: 90%;
+  max-height: 85%;
   object-fit: cover;
 `;
 
 const CardInfo = styled.div`
-  height:10%;
+  height:15%;
   padding: 0.75;
   position:relative;
   text-align: center;

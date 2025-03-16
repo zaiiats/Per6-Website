@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-function DynamicButton({ children, type }: { children: any; type?: string }) { 
+function DynamicButton({ children, type, callback }: { children: any; type?: string, callback:()=>void }) { 
   return (
     <>
       {type === 'main' ? (
-        <StyledButton>
+        <StyledButton onClick={callback}>
           <TextContainer>
             {Array.isArray(children) ? (
               children.map((node: string | ReactNode, i: number) => {
@@ -18,7 +18,7 @@ function DynamicButton({ children, type }: { children: any; type?: string }) {
           <Background />
         </StyledButton>
       ) : (
-        <StyledSimpleButton>
+        <StyledSimpleButton onClick={callback}>
           {Array.isArray(children) ? (
             children.map((node: string | ReactNode, i: number) => {
               return <Text key={node?.toString() || i}>{node}</Text>;

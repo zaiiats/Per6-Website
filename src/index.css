@@ -5,7 +5,7 @@
 
 
   --page1-background:rgba(0,0,0,0.3);
-  --page2-background:rgba(0,0,0,0.7);
+  --page2-background:rgba(0,0,0,0.8);
   --accent-color:#6a64ea;
 
 
@@ -18,6 +18,14 @@
   stroke: var(--white-color-text);
   height: 1.5rem;
   width: 1.5rem;
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.svg--big{
+  stroke: var(--white-color-text);
+  height: 3rem;
+  width: 3rem;
   stroke-width: 1.5;
   fill: none;
 }

@@ -10,9 +10,9 @@ function Navbar() {
           <Logo size='small' type='original' />
         </Navlink>
         <LinksContainer>
-          <Navlink to={1}>Ком'юніті</Navlink>
-          <Navlink to={2}>Проєкти</Navlink>
-          <Navlink to={3}>Про нас</Navlink>
+          <Navlink to={1}>Проєкти</Navlink>
+          <Navlink to={2}>Про нас</Navlink>
+          <Navlink to={3}>Ком'юніті</Navlink>
         </LinksContainer>
       </Nav>
     </StyledNavWrapper>

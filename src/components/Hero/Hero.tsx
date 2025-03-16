@@ -1,13 +1,15 @@
 import styled from "styled-components"
 import LogoText from "../reusable/LogoText"
 import DynamicButton from "../reusable/DynamicButton";
+import { useScroll } from "../../providers/ScrollProvider";
 
 function Hero() {
+  const {setCurrentPage} = useScroll()
   return (
     <StyledDiv>
       <LogoText type='big' />
       <h3>A unique gaming studio based in Ukraine</h3>
-      <DynamicButton type='main'>
+      <DynamicButton type='main' callback={()=>setCurrentPage(3)}>
         Дізнатися більше
       </DynamicButton>
     </StyledDiv>

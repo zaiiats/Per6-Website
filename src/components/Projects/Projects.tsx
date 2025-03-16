@@ -19,7 +19,7 @@ function Projects() {
             {'Приєднуйтесь до BEHIND THE WALLS!'}
           </DynamicText>
           <ButtonsContainer>
-            <DynamicButton>
+            <DynamicButton callback={() => {}}>
               Завантажити
               <svg
                 className='svg'
@@ -35,7 +35,15 @@ function Projects() {
                 </g>
               </svg>
             </DynamicButton>
-            <DynamicButton>
+            <DynamicButton
+              callback={() =>
+                window.open(
+                  'https://www.youtube.com/watch?v=juYfe2VUBl0',
+                  '_blank',
+                  'noopener,noreferrer'
+                )
+              }
+            >
               Трейлер
               <svg
                 className='svg'

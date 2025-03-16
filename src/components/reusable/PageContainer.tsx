@@ -12,7 +12,7 @@ const backgroundImages: Record<string, string> = {
   Community: bgCommunity,
 };
 
-console.log(backgroundImages);
+console.log(bgHero);
 
 function PageContainer({ children }: { children: ReactNode }) {
   const nameOfTheComponent =

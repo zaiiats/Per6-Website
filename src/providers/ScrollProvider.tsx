@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, useContext } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Hero from '../components/Hero/Hero';
 import Projects from '../components/Projects/Projects';
@@ -8,14 +8,19 @@ import Community from '../components/Community/Community';
 interface ScrollContextType {
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  sections: ReactNode[]
+  sections: any[];
 }
 
 const ScrollContext = createContext<ScrollContextType | undefined>(undefined);
 
-export const ScrollProvider = ({children}:any) => {
+export const ScrollProvider = ({ children }: any) => {
   const sections = useMemo(
-    () => [<Hero />, <Projects />, <About />, <Community />],
+    () => [
+      { component: <Hero />, name: 'Hero' },
+      { component: <Projects />, name: 'Projects' },
+      { component: <About />, name: 'About' },
+      { component: <Community />, name: 'Community' },
+    ],
     []
   );
   const [currentPage, setCurrentPage] = useState(0);
@@ -43,7 +48,6 @@ export const ScrollProvider = ({children}:any) => {
     [totalPages]
   );
 
-
   const handleScroll = useCallback(
     (event: WheelEvent) => {
       if (event.deltaY > 0) changePage('down');
@@ -70,11 +74,11 @@ export const ScrollProvider = ({children}:any) => {
   }, [handleScroll, handleKeyPress]);
 
   return (
-    <ScrollContext.Provider value={{currentPage, setCurrentPage, sections}}>
+    <ScrollContext.Provider value={{ currentPage, setCurrentPage, sections }}>
       {children}
     </ScrollContext.Provider>
-  )
-}
+  );
+};
 
 export const useScroll = () => {
   const context = useContext(ScrollContext);

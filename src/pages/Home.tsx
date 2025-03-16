@@ -1,19 +1,31 @@
 import styled from 'styled-components';
+import { isValidElement } from 'react';
 import PageContainer from '../components/reusable/PageContainer';
 import Sidebar from '../components/reusable/Sidebar';
 import { useScroll } from '../providers/ScrollProvider';
 
 function Home() {
-  const {currentPage, setCurrentPage, sections} = useScroll()
+  const { currentPage, setCurrentPage, sections } = useScroll();
 
   return (
     <>
       <StyledDiv>
-        {sections.map((Component, index) => (
-          <PageSection key={index} $index={index} $activePage={currentPage}>
-            <PageContainer>{Component}</PageContainer>
-          </PageSection>
-        ))}
+        {sections.map((Component, index) => {
+          let pageName = 'Unknown';
+
+          if (
+            isValidElement(Component) &&
+            typeof Component.type === 'function'
+          ) {
+            pageName = Component.type.name || 'Unknown';
+          }
+
+          return (
+            <PageSection key={index} $index={index} $activePage={currentPage}>
+              <PageContainer pageName={pageName}>{Component}</PageContainer>
+            </PageSection>
+          );
+        })}
       </StyledDiv>
       <Sidebar
         maxPage={sections.length}

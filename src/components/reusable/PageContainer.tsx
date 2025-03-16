@@ -1,27 +1,31 @@
-import styled from 'styled-components';
-import { isValidElement, ReactNode } from 'react';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
+import { ReactNode } from 'react';
+
+import bgHero from '../../assets/bg-hero.png';
+import bgProjects from '../../assets/bg-projects.png';
+import bgCommunity from '../../assets/bg-community.png';
 
 const backgroundImages: Record<string, string> = {
-  Hero: '/bg-hero.png',
-  Projects: '/bg-projects.png',
-  Community: '/bg-community.png',
+  Hero: bgHero,
+  Projects: bgProjects,
+  Community: bgCommunity,
 };
 
-console.log(backgroundImages);
+interface PageContainerProps {
+  children: ReactNode;
+  pageName: string; 
+}
 
-function PageContainer({ children }: { children: ReactNode }) {
-  const nameOfTheComponent =
-    isValidElement(children) && typeof children.type === 'function'
-      ? children.type.name
-      : 'Unknown';
-
-  const backgroundImage = backgroundImages[nameOfTheComponent] || 'none';
+export default function PageContainer({
+  children,
+  pageName,
+}: PageContainerProps) {
+  const backgroundImage = backgroundImages[pageName] || 'none';
 
   return (
     <StyledPageContainer $bgImage={backgroundImage}>
-      <Page>{children}</Page>
-      <Div $type={nameOfTheComponent} />
+      <Content>{children}</Content>
+      <Overlay $type={pageName} />
     </StyledPageContainer>
   );
 }
@@ -29,24 +33,24 @@ function PageContainer({ children }: { children: ReactNode }) {
 const StyledPageContainer = styled.section<{ $bgImage: string }>`
   flex: 1;
   height: 100dvh;
+  width: 100%;
   position: relative;
   display: flex;
   padding: 3.5rem 5vw 0;
-  width: 100%;
 
-  ${(props) =>
-    props.$bgImage === 'none'
+  ${({ $bgImage }) =>
+    $bgImage === 'none'
       ? css`
           background: none;
         `
       : css`
-          background-image: url(${props.$bgImage});
+          background-image: url('${$bgImage}');
           background-size: cover;
           background-position: center;
         `}
 `;
 
-const Page = styled.section`
+const Content = styled.section`
   margin: 0 auto;
   max-width: 100rem;
   flex: 1;
@@ -56,13 +60,15 @@ const Page = styled.section`
   z-index: 1;
 `;
 
-const Div = styled.div<{ $type: string }>`
-  height: 100%;
-  width: 100%;
+const Overlay = styled.div<{ $type: string }>`
   position: absolute;
   inset: 0;
-  ${(props) => {
-    if (props.$type === 'About') {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  ${({ $type }) => {
+    if ($type === 'About') {
       return css`
         background-image: repeating-linear-gradient(
           50deg,
@@ -74,7 +80,7 @@ const Div = styled.div<{ $type: string }>`
           #030307 90px
         );
       `;
-    } else if (props.$type === 'Hero') {
+    } else if ($type === 'Hero') {
       return css`
         background-color: var(--page1-background);
       `;
@@ -85,5 +91,3 @@ const Div = styled.div<{ $type: string }>`
     }
   }}
 `;
-
-export default PageContainer;

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { isValidElement, ReactNode } from 'react';
 import { css } from 'styled-components';
 
-import bgHero from '../../assets/bg-hero.png';
-import bgProjects from '../../assets/bg-projects.png';
-import bgCommunity from '../../assets/bg-community.png';
+import bgHero from '../../../public/bg-hero.png';
+import bgProjects from '../../../public/bg-projects.png';
+import bgCommunity from '../../../public/bg-community.png';
 
 const backgroundImages: Record<string, string> = {
   Hero: bgHero,

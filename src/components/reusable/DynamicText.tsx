@@ -14,6 +14,12 @@ const P = styled.p`
   font-size: 1.2rem;
   line-height: 1.4rem;
   word-spacing: 0.3rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    word-spacing: 0.6rem;
+  }
 `;
 
 export default DynamicText;

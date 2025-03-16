@@ -87,7 +87,6 @@ const ContentWrapper = styled.div`
 const Description = styled(DynamicText)`
   max-width: 50rem;
   margin: 0 auto 3rem;
-  font-size: 1.2rem;
   text-align: center;
 `;
 
@@ -99,10 +98,22 @@ const CardsContainer = styled.div`
   justify-content: center;
   gap: 1.5rem;
   padding: 2rem 0;
+
+  @media screen and (max-width: 1120px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  @media screen and (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
 `;
 
 const Card = styled.a`
-  display:block;
+  display: block;
   position: relative;
   width: 100%;
   max-height: 100%;
@@ -125,22 +136,50 @@ const Card = styled.a`
       transform: translateY(0rem);
     }
   }
+
+  @media screen and (max-width: 1120px) {
+    width: 25vw;
+    height: 25vh;
+
+    &:nth-child(2n) {
+      transform: translateY(0);
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    width: 40vw;
+    height: 20vh;
+
+    &:nth-child(2n) {
+      transform: translateY(0);
+    }
+  }
 `;
 
 const CardImage = styled.img`
   width: 100%;
   max-height: 85%;
   object-fit: cover;
+
+  @media screen and (max-width: 1120px) {
+    max-width: 100%;
+    height: 85%;
+  }
 `;
 
 const CardInfo = styled.div`
-  height:15%;
-  padding: 0.75;
-  position:relative;
+  height: 15%;
+  padding: 0 0.75rem;
+  position: relative;
   text-align: center;
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 1120px) {
+    max-width: 100%;
+    height: 15%;
+  }
 `;
 
 const Name = styled.h3`

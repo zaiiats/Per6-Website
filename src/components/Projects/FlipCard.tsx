@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import BTWurl from '../../assets/BTWicon.png';
 import QRurl from '../../assets/qr-code.png';
 
@@ -10,7 +10,7 @@ function FlipCard() {
           <Img src={BTWurl} alt='BTW icon' />
         </FlipCardFace>
         <FlipCardFaceBack>
-          <Img src={QRurl} alt='BTW icon' />
+          <Img src={QRurl} alt='QR Code' />
         </FlipCardFaceBack>
       </FlipCardInner>
     </StyledFlipCard>
@@ -19,19 +19,19 @@ function FlipCard() {
 
 const StyledFlipCard = styled.div`
   perspective: 1000px;
-  width: 40vh;
-  height: 40vh;
+  width: 15rem;
+  height: 15rem;
 `;
 
 const FlipCardInner = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.6s ease-in-out;
   transform-style: preserve-3d;
 
   &:hover {
-    transform: rotateY(180deg) scale(1.1);
+    transform: rotateY(180deg);
   }
 `;
 
@@ -39,9 +39,12 @@ const FlipCardFace = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   backface-visibility: hidden;
-  border-radius: 2rem;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
 `;
 
 const FlipCardFaceBack = styled(FlipCardFace)`
@@ -49,9 +52,10 @@ const FlipCardFaceBack = styled(FlipCardFace)`
 `;
 
 const Img = styled.img`
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0.8rem;
 `;
 
-export default FlipCard
+export default FlipCard;

@@ -42,6 +42,22 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     margin: 0;
     padding: 0;
+
+    font-size: 16px;
+
+    @media screen and (min-width: 1920px) { 
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 1120px) { 
+      font-size: 14px;
+    }
+    @media screen and (max-width: 800px) { 
+      font-size: 12px;
+    }
+    @media screen and (max-width: 480px) { 
+      font-size: 8px;
+    }
   }
 
   ::-webkit-scrollbar {

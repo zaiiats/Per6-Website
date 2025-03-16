@@ -10,7 +10,11 @@ const StyledH2 = styled.h2`
   color: var(--white-color-text);
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  font-weight:700;
+  font-weight: 700;
+
+  @media screen and (max-width: 480px) {
+    font-size: 3rem;
+  }
 `;
 
 export default Heading

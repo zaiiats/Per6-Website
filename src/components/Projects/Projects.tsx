@@ -90,6 +90,10 @@ const ProjectContainer = styled.div`
   align-items: center;
   overflow: visible;
   color: var(--white-color-text);
+
+  @media screen and (max-width: 800px) {
+    flex-direction:column-reverse;
+  }
 `;
 
 const ActionContainer = styled.div`
@@ -98,23 +102,35 @@ const ActionContainer = styled.div`
   width: 50%;
   height: 100%;
   gap: 2rem;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    gap:1rem;
+  }
 `;
 
 const ImageWrapper = styled.div`
-  perspective: 1000px;
-  padding: 4%;
+  padding: 5%;
   width: 50%;
-  height: 100%;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 480px) {
+    height: 20rem;
+  }
 `;
 
 const ButtonsContainer = styled.div`
-  padding-top:2rem;
+  padding-top: 2rem;
   display: flex;
   gap: 2rem;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 1rem;
+  }
 `;
 
 const AvailableContainer = styled.div`

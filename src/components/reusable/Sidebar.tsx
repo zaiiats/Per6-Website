@@ -33,7 +33,11 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding-top:3.5rem;
+  padding-top: 3.5rem;
+
+  @media screen and (max-width: 1120px) {
+    display:none;
+  }
 `;
 
 const Dot = styled.div<{ $isActive: boolean }>`

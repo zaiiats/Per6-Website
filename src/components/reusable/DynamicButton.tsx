@@ -1,21 +1,32 @@
-import styled from "styled-components";
+import { ReactNode } from 'react';
+import styled from 'styled-components';
 
-function DynamicButton({
-  children,
-  type,
-}: {
-  children: any;
-  type?: string;
-}) {
+function DynamicButton({ children, type }: { children: any; type?: string }) { 
   return (
     <>
       {type === 'main' ? (
         <StyledButton>
-          <Text>{children}</Text>
+          <TextContainer>
+            {Array.isArray(children) ? (
+              children.map((node: string | ReactNode, i: number) => {
+                return <Text key={node?.toString() || i}>{node}</Text>;
+              })
+            ) : (
+              <Text>{children}</Text>
+            )}
+          </TextContainer>
           <Background />
         </StyledButton>
       ) : (
-        <StyledSimpleButton>{children}</StyledSimpleButton>
+        <StyledSimpleButton>
+          {Array.isArray(children) ? (
+            children.map((node: string | ReactNode, i: number) => {
+              return <Text key={node?.toString() || i}>{node}</Text>;
+            })
+          ) : (
+            <Text>{children}</Text>
+          )}
+        </StyledSimpleButton>
       )}
     </>
   );
@@ -54,13 +65,13 @@ const StyledButton = styled.button`
   }
 `;
 
-const Text = styled.div`
+const TextContainer = styled.div`
   z-index: 2;
   position: relative;
   padding: 0.75rem 1.5rem;
   background-color: var(--main-bg-color);
   border-radius: 0.3rem;
-  transition: var(--transition);
+  color: inherit;
 `;
 
 const Background = styled.span`
@@ -81,18 +92,38 @@ const Background = styled.span`
 `;
 
 const StyledSimpleButton = styled.button`
-  background-color: var(--main-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
   padding: 0.75rem 1.5rem;
   border: var(--white-border);
   border-radius: 0.3rem;
   color: var(--white-color-text);
   transition: var(--transition);
 
+  & .svg {
+    transition: var(--transition);
+  }
+
   &:hover {
     border: var(--accent-border);
   }
+
+  &:hover > span {
+    color: var(--accent-color);
+  }
+
+  &:hover .svg {
+    stroke: var(--accent-color);
+  }
 `;
 
+const Text = styled.span`
+  transition:var(--transition)
+`;
 
 
 export default DynamicButton;

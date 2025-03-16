@@ -2,58 +2,54 @@ import styled from 'styled-components';
 import DynamicPage from '../reusable/DynamicPage';
 import DynamicButton from '../reusable/DynamicButton';
 import FlipCard from './FlipCard';
+import DynamicText from '../reusable/DynamicText';
 
 function Projects() {
   return (
     <DynamicPage headingText='Behind The Walls' order={1}>
       <ProjectContainer>
         <ActionContainer>
-          <P>
+          <DynamicText>
             {
               '  "BEHIND THE WALLS" – це багатокористувацька постапокаліптична гра у стилі pixel art, що поєднує атмосферу настільної гри з динамікою онлайн-протистоянь. Світ після катастрофи, обмежені ресурси, боротьба за виживання – чи зможете ви потрапити до укриття?'
             }
-          </P>
-          <P>
-            {'Виживуть не всі. Готові кинути виклик хаосу?'}
-            <br />
+          </DynamicText>
+          <DynamicText>
+            {'Виживуть не всі. Готові кинути виклик хаосу?\n'}
             {'Приєднуйтесь до BEHIND THE WALLS!'}
-          </P>
+          </DynamicText>
           <ButtonsContainer>
             <DynamicButton>
-              <ButtonContent>
-                Завантажити
-                <svg
-                  className='svg'
-                  viewBox='0 0 24 24'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <g strokeLinecap='round'>
-                    <path d='m6 20h12' />
-                    <g strokeLinejoin='round'>
-                      <path d='m12 15-.0005-11' />
-                      <path d='m8 12 3.2929 3.2929c.3333.3333.5.5.7071.5s.3738-.1667.7071-.5l3.2929-3.2929' />
-                    </g>
+              Завантажити
+              <svg
+                className='svg'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <g strokeLinecap='round'>
+                  <path d='m6 20h12' />
+                  <g strokeLinejoin='round'>
+                    <path d='m12 15-.0005-11' />
+                    <path d='m8 12 3.2929 3.2929c.3333.3333.5.5.7071.5s.3738-.1667.7071-.5l3.2929-3.2929' />
                   </g>
-                </svg>
-              </ButtonContent>
+                </g>
+              </svg>
             </DynamicButton>
             <DynamicButton>
-              <ButtonContent>
-                Трейлер
-                <svg
-                  className='svg'
-                  viewBox='0 0 24 24'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <g>
-                    <path d='m12 20.5c1.8097 0 3.5451-.1788 5.1534-.5066 2.0089-.4095 3.0134-.6143 3.93-1.7928s.9166-2.5313.9166-5.2371v-1.927c0-2.70577 0-4.05863-.9166-5.23713-.9166-1.17849-1.9211-1.38324-3.93-1.79275-1.6083-.32785-3.3437-.50662-5.1534-.50662s-3.54511.17877-5.15344.50662c-2.0089.40951-3.01335.61426-3.92996 1.79275-.9166 1.1785-.9166 2.53136-.9166 5.23713v1.927c0 2.7058 0 4.0586.9166 5.2371.91661 1.1785 1.92106 1.3833 3.92996 1.7928 1.60833.3278 3.34374.5066 5.15344.5066z' />
-                    <path
-                      d='m15.9621 12.3129c-.1484.6058-.938 1.0409-2.5172 1.9112-1.7177.9464-2.5765 1.4197-3.2721 1.2374-.2356-.0618-.4526-.1704-.63481-.3177-.53799-.4349-.53799-1.3379-.53799-3.1438s0-2.70888.53799-3.14382c.18221-.14732.39921-.25589.63481-.31764.6956-.18233 1.5544.29091 3.2721 1.23739 1.5792.87027 2.3688 1.30537 2.5172 1.91117.0505.2062.0505.4196 0 .6258z'
-                      strokeLinejoin='round'
-                    />
-                  </g>
-                </svg>
-              </ButtonContent>
+              Трейлер
+              <svg
+                className='svg'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <g>
+                  <path d='m12 20.5c1.8097 0 3.5451-.1788 5.1534-.5066 2.0089-.4095 3.0134-.6143 3.93-1.7928s.9166-2.5313.9166-5.2371v-1.927c0-2.70577 0-4.05863-.9166-5.23713-.9166-1.17849-1.9211-1.38324-3.93-1.79275-1.6083-.32785-3.3437-.50662-5.1534-.50662s-3.54511.17877-5.15344.50662c-2.0089.40951-3.01335.61426-3.92996 1.79275-.9166 1.1785-.9166 2.53136-.9166 5.23713v1.927c0 2.7058 0 4.0586.9166 5.2371.91661 1.1785 1.92106 1.3833 3.92996 1.7928 1.60833.3278 3.34374.5066 5.15344.5066z' />
+                  <path
+                    d='m15.9621 12.3129c-.1484.6058-.938 1.0409-2.5172 1.9112-1.7177.9464-2.5765 1.4197-3.2721 1.2374-.2356-.0618-.4526-.1704-.63481-.3177-.53799-.4349-.53799-1.3379-.53799-3.1438s0-2.70888.53799-3.14382c.18221-.14732.39921-.25589.63481-.31764.6956-.18233 1.5544.29091 3.2721 1.23739 1.5792.87027 2.3688 1.30537 2.5172 1.91117.0505.2062.0505.4196 0 .6258z'
+                    strokeLinejoin='round'
+                  />
+                </g>
+              </svg>
             </DynamicButton>
           </ButtonsContainer>
           <AvailableContainer>
@@ -106,25 +102,11 @@ const ImageWrapper = styled.div`
   align-items: center;
 `;
 
-const P = styled.p`
-  font-weight: 400;
-  font-size: 1.3rem;
-  line-height: 1.4rem;
-  word-spacing: 0.3rem;
-`;
-
 const ButtonsContainer = styled.div`
   padding-top:2rem;
   display: flex;
   gap: 2rem;
   align-items: center;
-`;
-
-const ButtonContent = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
 `;
 
 const AvailableContainer = styled.div`

@@ -32,6 +32,7 @@ const StyledApp = styled.div`
   background-color: var(--main-bg-color);
   min-height: 100dvh;
   overflow: hidden;
+  color:var(--white-color-text)
 `;
 
 const GlobalStyle = createGlobalStyle`

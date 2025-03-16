@@ -16,6 +16,7 @@ const StyledButton = styled.button`
   color: var(--white-color-text);
   background-color: transparent;
   transition: var(--transition);
+  padding:0.5rem;
 
   &:hover {
     color: var(--accent-color);

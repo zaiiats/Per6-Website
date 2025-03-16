@@ -6,7 +6,7 @@ function Hero() {
   return (
     <StyledDiv>
       <LogoText type='big' />
-      <h3>A unique gaming studio based on Ukraine</h3>
+      <h3>A unique gaming studio based in Ukraine</h3>
       <DynamicButton type='main'>
         Дізнатися більше
       </DynamicButton>

@@ -4,6 +4,7 @@ import { isValidElement, ReactNode } from 'react';
 import bgHero from '../../assets/bg-hero.png';
 import bgProjects from '../../assets/bg-projects.png';
 import bgCommunity from '../../assets/bg-community.png';
+import { css } from 'styled-components';
 
 const backgroundImages: Record<string, string> = {
   Hero: bgHero,
@@ -11,19 +12,18 @@ const backgroundImages: Record<string, string> = {
   Community: bgCommunity,
 };
 
-function PageContainer({ children }: { children: ReactNode }) {  
-
+function PageContainer({ children }: { children: ReactNode }) {
   const nameOfTheComponent =
     isValidElement(children) && typeof children.type === 'function'
       ? children.type.name
-      : 'Unknown';     
+      : 'Unknown';
 
-  const backgroundImage = backgroundImages[nameOfTheComponent] || bgHero;
+  const backgroundImage = backgroundImages[nameOfTheComponent] || 'none';
 
   return (
     <StyledPageContainer $bgImage={backgroundImage}>
       <Page>{children}</Page>
-      <Div $type={nameOfTheComponent}/>
+      <Div $type={nameOfTheComponent} />
     </StyledPageContainer>
   );
 }
@@ -33,10 +33,19 @@ const StyledPageContainer = styled.section<{ $bgImage: string }>`
   height: 100dvh;
   position: relative;
   display: flex;
-  background-image: url(${(props) => props.$bgImage});
-  background-size: cover;
-  background-position: center;
-  padding:3.5rem 5vw 0;
+  padding: 3.5rem 5vw 0;
+  width: 100%;
+
+  ${(props) =>
+    props.$bgImage === 'none'
+      ? css`
+          background: none;
+        `
+      : css`
+          background-image: url(${props.$bgImage});
+          background-size: cover;
+          background-position: center;
+        `}
 `;
 
 const Page = styled.section`
@@ -46,7 +55,7 @@ const Page = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index:1;
+  z-index: 1;
 `;
 
 const Div = styled.div<{ $type: string }>`
@@ -54,10 +63,29 @@ const Div = styled.div<{ $type: string }>`
   width: 100%;
   position: absolute;
   inset: 0;
-  background-color: ${(props) =>
-    props.$type === 'Hero'
-      ? 'var(--page1-background)'
-      : 'var(--page2-backdround)'};
+  ${(props) => {
+    if (props.$type === 'About') {
+      return css`
+        background-image: repeating-linear-gradient(
+          50deg,
+          #080815 0,
+          #080815 30px,
+          #06060e 30px,
+          #06060e 60px,
+          #030307 60px,
+          #030307 90px
+        );
+      `;
+    } else if (props.$type === 'Hero') {
+      return css`
+        background-color: var(--page1-background);
+      `;
+    } else {
+      return css`
+        background-color: var(--page2-background);
+      `;
+    }
+  }}
 `;
 
 export default PageContainer;

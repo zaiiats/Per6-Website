@@ -2,8 +2,10 @@
   --white-color-text:#fff;
   --black-color-text:#000;
   --main-bg-color:#0c0c1b;
-  --page1-backdround:rgba(0,0,0,0.3);
-  --page2-backdround:rgba(0,0,0,0.7);
+
+
+  --page1-background:rgba(0,0,0,0.3);
+  --page2-background:rgba(0,0,0,0.7);
   --accent-color:#6a64ea;
 
 

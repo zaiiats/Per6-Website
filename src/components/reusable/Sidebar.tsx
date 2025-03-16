@@ -33,6 +33,7 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding-top:3.5rem;
 `;
 
 const Dot = styled.div<{ $isActive: boolean }>`

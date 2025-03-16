@@ -28,6 +28,10 @@ export const ScrollProvider = ({ children }: any) => {
   const timer = useRef<number | null>(null);
   const isUpdating = useRef(false);
 
+  const touchStartY = useRef<number | null>(null);
+  const touchEndY = useRef<number | null>(null);
+  const SWIPE_THRESHOLD = 50;
+
   const changePage = useCallback(
     (direction: 'up' | 'down') => {
       if (isUpdating.current) return;
@@ -64,14 +68,46 @@ export const ScrollProvider = ({ children }: any) => {
     [changePage]
   );
 
+  const handleTouchStart = useCallback((event: TouchEvent) => {
+    touchStartY.current = event.touches[0].clientY;
+    touchEndY.current = null; // Reset touch end
+  }, []);
+
+  const handleTouchMove = useCallback((event: TouchEvent) => {
+    touchEndY.current = event.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    if (touchStartY.current !== null && touchEndY.current !== null) {
+      const distance = touchStartY.current - touchEndY.current;
+
+      if (Math.abs(distance) > SWIPE_THRESHOLD) {
+        if (distance > 0) {
+          changePage('down');
+        } else {
+          changePage('up');
+        }
+      }
+    }
+  }, [changePage]);
+
   useEffect(() => {
     window.addEventListener('wheel', handleScroll, { passive: true });
     window.addEventListener('keydown', handleKeyPress);
+    
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
     return () => {
       window.removeEventListener('wheel', handleScroll);
       window.removeEventListener('keydown', handleKeyPress);
+      
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [handleScroll, handleKeyPress]);
+  }, [handleScroll, handleKeyPress, handleTouchStart, handleTouchMove, handleTouchEnd]);
 
   return (
     <ScrollContext.Provider value={{ currentPage, setCurrentPage, sections }}>

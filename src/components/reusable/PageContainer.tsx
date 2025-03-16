@@ -2,17 +2,13 @@ import styled from 'styled-components';
 import { isValidElement, ReactNode } from 'react';
 import { css } from 'styled-components';
 
-import bgHero from '../../../public/bg-hero.png';
-import bgProjects from '../../../public/bg-projects.png';
-import bgCommunity from '../../../public/bg-community.png';
-
 const backgroundImages: Record<string, string> = {
-  Hero: bgHero,
-  Projects: bgProjects,
-  Community: bgCommunity,
+  Hero: '/bg-hero.png',
+  Projects: '/bg-projects.png',
+  Community: '/bg-community.png',
 };
 
-console.log(bgHero);
+console.log(backgroundImages);
 
 function PageContainer({ children }: { children: ReactNode }) {
   const nameOfTheComponent =

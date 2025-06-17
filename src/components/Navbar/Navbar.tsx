@@ -6,12 +6,16 @@ function Navbar() {
   return (
     <StyledNavWrapper>
       <Nav>
-        <Navlink to={0}>
+        <Navlink to={0} page='/'>
           <Logo size='small' type='original' />
         </Navlink>
         <LinksContainer>
-          <Navlink to={1}>Проєкти</Navlink>
-          <Navlink to={2}>Контакти</Navlink>
+          <Navlink to={1} page='/'>
+            Проєкти
+          </Navlink>
+          <Navlink to={2} page='/'>
+            Контакти
+          </Navlink>
         </LinksContainer>
       </Nav>
     </StyledNavWrapper>
@@ -39,7 +43,7 @@ const Nav = styled.nav`
 
 const LinksContainer = styled.div`
   display: flex;
-  gap:2.5rem;
+  gap: 2.5rem;
 `;
 
 export default Navbar;

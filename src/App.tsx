@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
 import styled, { createGlobalStyle } from 'styled-components';
 import { ScrollProvider } from './providers/ScrollProvider';
+import BTW from './pages/BTW';
 
 function App() {
   return (
@@ -15,10 +15,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/btw' element={<BTW />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
-
-        <Footer />
       </ScrollProvider>
     </StyledApp>
   );

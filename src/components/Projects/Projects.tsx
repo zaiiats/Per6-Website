@@ -3,8 +3,11 @@ import DynamicPage from '../reusable/DynamicPage';
 import DynamicButton from '../reusable/DynamicButton';
 import FlipCard from './FlipCard';
 import DynamicText from '../reusable/DynamicText';
+import { useNavigate } from 'react-router-dom';
 
 function Projects() {
+  const navigate = useNavigate();
+
   return (
     <DynamicPage headingText='Behind The Walls' order={1}>
       <ProjectContainer>
@@ -19,13 +22,7 @@ function Projects() {
             {'Приєднуйтесь до BEHIND THE WALLS!'}
           </DynamicText>
           <ButtonsContainer>
-            <DynamicButton
-              callback={() =>
-                window.open(
-                  'https://per6.org/btw',
-                )
-              }
-            >
+            <DynamicButton callback={() => navigate('/btw')}>
               Грати
             </DynamicButton>
             <DynamicButton

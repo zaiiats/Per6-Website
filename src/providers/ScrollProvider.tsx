@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useContext } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Hero from '../components/Hero/Hero';
 import Projects from '../components/Projects/Projects';
-import About from '../components/About/About';
 import Community from '../components/Community/Community';
 
 interface ScrollContextType {
@@ -18,7 +18,6 @@ export const ScrollProvider = ({ children }: any) => {
     () => [
       { component: <Hero />, name: 'Hero' },
       { component: <Projects />, name: 'Projects' },
-      { component: <About />, name: 'About' },
       { component: <Community />, name: 'Community' },
     ],
     []

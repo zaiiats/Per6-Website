@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import BTWurl from '../../assets/BTWicon.png';
-import QRurl from '../../assets/qr-code.png';
 
 function FlipCard() {
   return (
@@ -10,7 +9,7 @@ function FlipCard() {
           <Img src={BTWurl} alt='BTW icon' />
         </FlipCardFace>
         <FlipCardFaceBack>
-          <Img src={QRurl} alt='QR Code' />
+          <Img src={BTWurl} alt='BTW icon' />
         </FlipCardFaceBack>
       </FlipCardInner>
     </StyledFlipCard>

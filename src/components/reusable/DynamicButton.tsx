@@ -59,6 +59,7 @@ const StyledButton = styled.button`
   background-color: transparent;
   overflow: hidden;
   transition: var(--transition);
+  font-size: 1.2rem;
 
   &:hover > div {
     color: var(--accent-color);
@@ -103,6 +104,8 @@ const StyledSimpleButton = styled.button`
   border-radius: 0.3rem;
   color: var(--white-color-text);
   transition: var(--transition);
+
+  font-size: 1.2rem;
 
   & .svg {
     transition: var(--transition);

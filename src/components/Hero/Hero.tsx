@@ -10,7 +10,7 @@ function Hero() {
     <StyledDiv>
       <LogoText type='big' />
       <DynamicText>A unique gaming studio based in Ukraine</DynamicText>
-      <DynamicButton type='main' callback={()=>setCurrentPage(3)}>
+      <DynamicButton type='main' callback={()=>setCurrentPage(2)}>
         Дізнатися більше
       </DynamicButton>
     </StyledDiv>

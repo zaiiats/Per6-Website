@@ -11,8 +11,7 @@ function Navbar() {
         </Navlink>
         <LinksContainer>
           <Navlink to={1}>Проєкти</Navlink>
-          <Navlink to={2}>Про нас</Navlink>
-          <Navlink to={3}>Ком'юніті</Navlink>
+          <Navlink to={2}>Контакти</Navlink>
         </LinksContainer>
       </Nav>
     </StyledNavWrapper>

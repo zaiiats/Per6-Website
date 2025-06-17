@@ -19,21 +19,14 @@ function Projects() {
             {'Приєднуйтесь до BEHIND THE WALLS!'}
           </DynamicText>
           <ButtonsContainer>
-            <DynamicButton callback={() => {}}>
-              Завантажити
-              <svg
-                className='svg'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g strokeLinecap='round'>
-                  <path d='m6 20h12' />
-                  <g strokeLinejoin='round'>
-                    <path d='m12 15-.0005-11' />
-                    <path d='m8 12 3.2929 3.2929c.3333.3333.5.5.7071.5s.3738-.1667.7071-.5l3.2929-3.2929' />
-                  </g>
-                </g>
-              </svg>
+            <DynamicButton
+              callback={() =>
+                window.open(
+                  'https://per6.org/btw',
+                )
+              }
+            >
+              Грати
             </DynamicButton>
             <DynamicButton
               callback={() =>
@@ -60,20 +53,6 @@ function Projects() {
               </svg>
             </DynamicButton>
           </ButtonsContainer>
-          <AvailableContainer>
-            <p>Доступна у</p>
-            <svg
-              className='svg'
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <g strokeLinejoin='round'>
-                <path d='m17.9405 12.4311c-.2332.952-1.474 1.6358-3.9557 3.0033-2.6991 1.4873-4.04868 2.231-5.14183 1.9445-.37023-.097-.71123-.2677-.99756-.4992-.84541-.6834-.84541-2.1024-.84541-4.9403 0-2.83783 0-4.25676.84541-4.94025.28633-.23149.62733-.40211.99756-.49915 1.09315-.28651 2.44273.45715 5.14183 1.94448 2.4817 1.36751 3.7225 2.05122 3.9557 3.00332.0793.3239.0793.6594 0 .9833z' />
-                <path d='m8 17 8-7.38568m-8-2.61432 8 7.3857' />
-                <path d='m2.5 12c0-4.47834 0-6.71751 1.39124-8.10876 1.39125-1.39124 3.63042-1.39124 8.10876-1.39124 4.4783 0 6.7175 0 8.1088 1.39124 1.3912 1.39125 1.3912 3.63042 1.3912 8.10876 0 4.4783 0 6.7175-1.3912 8.1088-1.3913 1.3912-3.6305 1.3912-8.1088 1.3912-4.47834 0-6.71751 0-8.10876-1.3912-1.39124-1.3913-1.39124-3.6305-1.39124-8.1088z' />
-              </g>
-            </svg>
-          </AvailableContainer>
         </ActionContainer>
         <ImageWrapper>
           <FlipCard />
@@ -92,7 +71,7 @@ const ProjectContainer = styled.div`
   color: var(--white-color-text);
 
   @media screen and (max-width: 800px) {
-    flex-direction:column-reverse;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -105,7 +84,7 @@ const ActionContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     width: 100%;
-    gap:1rem;
+    gap: 1rem;
   }
 `;
 
@@ -126,17 +105,12 @@ const ButtonsContainer = styled.div`
   padding-top: 2rem;
   display: flex;
   gap: 2rem;
-  align-items: center;
+  align-items: stretch;
+  font-size: 2rem;
 
   @media screen and (max-width: 800px) {
     padding-top: 1rem;
   }
 `;
-
-const AvailableContainer = styled.div`
-  display: flex;
-  align-items:center;
-  gap:0.5rem;
-`
 
 export default Projects;

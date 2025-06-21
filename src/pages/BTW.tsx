@@ -67,7 +67,7 @@ interface AdBannerProps {
   slot: string;
 }
 const AdBanner: React.FC<AdBannerProps> = ({ slot }) => {
-  const insRef = useRef<HTMLInsElement>(null);
+  const insRef = useRef<HTMLModElement>(null);
   const [ready, setReady] = useState(false);
 
   /* додаємо скрипт один раз */

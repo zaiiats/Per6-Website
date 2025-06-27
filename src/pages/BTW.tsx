@@ -32,8 +32,7 @@ const GameWrapper = styled.section`
   position: relative;
 `;
 
-const Game = styled.div<{ $square: boolean }>`
-  background: red;
+const Game = styled.iframe<{ $square: boolean }>`
   ${({ $square }) =>
     $square
       ? `
@@ -125,13 +124,18 @@ const TopSide = styled.aside`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: #555;
 `;
+
 const BottomSide = styled.aside`
   grid-column: 3;
   grid-row: 2;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: #555;
 `;
 
 /* ────────── головний компонент ────────── */
@@ -153,7 +157,10 @@ const BTW: React.FC = () => {
   return (
     <StyledBTW>
       <GameWrapper ref={wrapperRef}>
-        <Game $square={isTall} />
+        <Game
+          src='https://btwprojectgame.netlify.app/menu'
+          $square={isTall}
+        ></Game>
       </GameWrapper>
 
       {/* TL */}

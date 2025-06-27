@@ -3,17 +3,26 @@ import Logo from '../reusable/Logo';
 import Navlink from './Navlink';
 
 function Navbar() {
+  const handleClick = (e: React.MouseEvent) => {
+    if (window.location.pathname === '/btw') {
+      const confirmed = window.confirm('Ви покидаєте гру. Продовжити?');
+      if (!confirmed) {
+        e.preventDefault();
+      }
+    }
+  };
+
   return (
     <StyledNavWrapper>
       <Nav>
-        <Navlink to={0} page='/'>
+        <Navlink to={0} page='/' onClick={handleClick}>
           <Logo size='small' type='original' />
         </Navlink>
         <LinksContainer>
-          <Navlink to={1} page='/'>
+          <Navlink to={1} page='/' onClick={handleClick}>
             Проєкти
           </Navlink>
-          <Navlink to={2} page='/'>
+          <Navlink to={2} page='/' onClick={handleClick}>
             Контакти
           </Navlink>
         </LinksContainer>

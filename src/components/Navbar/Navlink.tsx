@@ -3,23 +3,25 @@ import { useScroll } from '../../providers/ScrollProvider';
 import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Navlink({
-  children,
-  to,
-  page,
-}: {
+type NavlinkProps = {
   children: ReactNode;
   to: number;
   page: string;
-}) {
-  const { setCurrentPage } = useScroll();
-  const navigate = useNavigate()
+  onClick?: (e: React.MouseEvent) => void;
+};
 
-  const handleNavlinkClick = () => {
-    navigate(page)
+function Navlink({ children, to, page, onClick }: NavlinkProps) {
+  const { setCurrentPage } = useScroll();
+  const navigate = useNavigate();
+
+  const handleNavlinkClick = (e: React.MouseEvent) => {
+    if (onClick) onClick(e);
+    if (e.defaultPrevented) return;
+
+    navigate(page);
     setCurrentPage(0);
     setCurrentPage(to);
-  }
+  };
 
 
   return <StyledButton onClick={handleNavlinkClick}>{children}</StyledButton>;

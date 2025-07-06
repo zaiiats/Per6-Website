@@ -12,11 +12,16 @@ function App() {
       <ScrollProvider>
         <GlobalStyle />
 
-        <Navbar />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <>
+            <Navbar />
+            <Route path='/' element={<Home />} />
+          </>
           <Route path='/btw' element={<BTW />} />
-          <Route path='*' element={<PageNotFound />} />
+          <>
+            <Navbar />
+            <Route path='*' element={<PageNotFound />} />
+          </>
         </Routes>
       </ScrollProvider>
     </StyledApp>

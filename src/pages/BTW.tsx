@@ -163,15 +163,15 @@ const BTW: React.FC = () => {
         ></Game>
       </GameWrapper>
 
-      {/* TL */}
+      {/* TL
       <TopSide>
         <AdBanner slot='3477553840' />
       </TopSide>
 
-      {/* BL (твоє «старе» RightBanner) */}
+      {/* BL (твоє «старе» RightBanner) 
       <BottomSide>
         <AdBanner slot='9851390500' />
-      </BottomSide>
+      </BottomSide> */}
     </StyledBTW>
   );
 };

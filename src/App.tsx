@@ -1,27 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import PageNotFound from './pages/PageNotFound';
-import Navbar from './components/Navbar/Navbar';
-import styled, { createGlobalStyle } from 'styled-components';
-import { ScrollProvider } from './providers/ScrollProvider';
-import BTW from './pages/BTW';
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import PageNotFound from "./pages/PageNotFound";
+import Navbar from "./components/Navbar/Navbar";
+import styled, { createGlobalStyle } from "styled-components";
+import { ScrollProvider } from "./providers/ScrollProvider";
+import BTW from "./pages/BTW";
+
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  const hideNavbar = location.pathname === "/btw";
+
   return (
     <StyledApp>
       <ScrollProvider>
         <GlobalStyle />
 
+        {!hideNavbar && <Navbar />}
+
         <Routes>
-          <>
-            <Navbar />
-            <Route path='/' element={<Home />} />
-          </>
-          <Route path='/btw' element={<BTW />} />
-          <>
-            <Navbar />
-            <Route path='*' element={<PageNotFound />} />
-          </>
+          <Route path="/" element={<Home />} />
+          <Route path="/btw" element={<BTW />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </ScrollProvider>
     </StyledApp>
@@ -36,7 +37,7 @@ const StyledApp = styled.div`
   background-color: var(--main-bg-color);
   min-height: 100dvh;
   overflow: hidden;
-  color:var(--white-color-text)
+  color: var(--white-color-text);
 `;
 
 const GlobalStyle = createGlobalStyle`

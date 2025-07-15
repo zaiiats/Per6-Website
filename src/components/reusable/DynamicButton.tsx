@@ -1,10 +1,18 @@
-import { ReactNode } from 'react';
-import styled from 'styled-components';
+import { ReactNode } from "react";
+import styled from "styled-components";
 
-function DynamicButton({ children, type, callback }: { children: any; type?: string, callback:()=>void }) { 
+function DynamicButton({
+  children,
+  type,
+  callback,
+}: {
+  children: any;
+  type?: string;
+  callback: () => void;
+}) {
   return (
     <>
-      {type === 'main' ? (
+      {type === "main" ? (
         <StyledButton onClick={callback}>
           <TextContainer>
             {Array.isArray(children) ? (
@@ -34,7 +42,7 @@ function DynamicButton({ children, type, callback }: { children: any; type?: str
 
 const StyledButton = styled.button`
   @property --angle {
-    syntax: '<angle>';
+    syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
   }
@@ -58,7 +66,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   background-color: transparent;
   overflow: hidden;
-  transition: var(--transition);
+  transition: var(--transition, all 0.3s ease); /* додано запасне значення */
   font-size: 1.2rem;
 
   &:hover > div {
@@ -107,6 +115,18 @@ const StyledSimpleButton = styled.button`
 
   font-size: 1.2rem;
 
+  @media screen and (max-width: 30rem) {
+    font-size: 3rem;
+    padding: 1.5rem 5vw;
+    
+    .svg {
+      padding: 0;
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+
   & .svg {
     transition: var(--transition);
   }
@@ -125,8 +145,9 @@ const StyledSimpleButton = styled.button`
 `;
 
 const Text = styled.span`
-  transition:var(--transition)
+  display:flex;
+  align-item:center;
+  transition: var(--transition);
 `;
-
 
 export default DynamicButton;

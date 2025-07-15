@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useContext } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Hero from '../components/Hero/Hero';
+//import Hero from '../components/Hero/Hero';
 import Projects from '../components/Projects/Projects';
 import Community from '../components/Community/Community';
 
@@ -16,7 +16,7 @@ const ScrollContext = createContext<ScrollContextType | undefined>(undefined);
 export const ScrollProvider = ({ children }: any) => {
   const sections = useMemo(
     () => [
-      { component: <Hero />, name: 'Hero' },
+      //{ component: <Hero />, name: 'Hero' },
       { component: <Projects />, name: 'Projects' },
       { component: <Community />, name: 'Community' },
     ],

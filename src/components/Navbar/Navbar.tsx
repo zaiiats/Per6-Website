@@ -19,10 +19,10 @@ function Navbar() {
           <Logo size='small' type='original' />
         </Navlink>
         <LinksContainer>
-          <Navlink to={1} page='/' onClick={handleClick}>
+          {/* <Navlink to={1} page='/' onClick={handleClick}>
             Проєкти
-          </Navlink>
-          <Navlink to={2} page='/' onClick={handleClick}>
+          </Navlink> */}
+          <Navlink to={1} page='/' onClick={handleClick}>
             Контакти
           </Navlink>
         </LinksContainer>

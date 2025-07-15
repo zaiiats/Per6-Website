@@ -4,7 +4,7 @@ import DynamicText from '../reusable/DynamicText';
 
 function Community() {
   return (
-    <DynamicPage headingText='Контакти' order={2}>
+    <DynamicPage headingText='Контакти' order={1}>
       <ContentWrapper>
         <DynamicText>
           Хочете бути в курсі всіх новин, оновлень та ексклюзивних матеріалів

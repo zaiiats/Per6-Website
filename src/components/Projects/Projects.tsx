@@ -9,7 +9,7 @@ function Projects() {
   const navigate = useNavigate();
 
   return (
-    <DynamicPage headingText='Behind The Walls' order={1}>
+    <DynamicPage headingText='Behind The Walls' order={0}>
       <ProjectContainer>
         <ActionContainer>
           <DynamicText>
@@ -107,6 +107,11 @@ const ButtonsContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     padding-top: 1rem;
+  }
+  
+  @media screen and (max-width: 30rem) {
+    padding-top: 2rem;
+    margin:0 auto;
   }
 `;
 
